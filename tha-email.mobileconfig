@@ -6,59 +6,45 @@
 <array> 
 <dict> 
 <key>EmailAccountDescription</key> 
-<string> Enter Email Account Description</string> 
-<key>EmailAccountName</key> 
-<string>Enter the Name Email Account </string> 
+<string>TH Augsburg</string> 
 <key>EmailAccountType</key> 
-<string> Enter Email Account Protocol Type</string> 
-<key>EmailAddress</key> 
-<string>Enter the Email Address</string> 
+<string>EmailTypeIMAP</string> 
 <key>IncomingMailServerAuthentication</key> 
-<string> EmailAuthPassword</string> 
+<string>EmailAuthPassword</string> 
 <key>IncomingMailServerHostName</key> 
-<string>Enter the IncomingMailServerHostName </string> 
+<string>mail.hs-augsburg.de</string> 
 <key>IncomingMailServerPortNumber</key> 
-<integer>Enter port number for IncomingMailServer</integer> 
+<integer>993</integer> 
 <key>IncomingMailServerUseSSL</key> 
 <true/> 
-<key>IncomingMailServerUsername</key> 
-<string>Enter the Username of Incoming Mail Server</string> 
-<key>IncomingPassword</key> 
-<string>Enter the password for Incoming Mail</string> 
 <key>OutgoingMailServerAuthentication</key> 
 <string>EmailAuthPassword</string> 
 <key>OutgoingMailServerHostName</key> 
-<string> Enter the OutgoingMailServerHostName </string> 
-<key>OutgoingMailServerPortNumber</key> 
-<integer> Enter port number for OutgoingMailServer </integer> 
+<string>smtp.hs-augsburg.de</string> 
 <key>OutgoingMailServerUseSSL</key> 
 <true/> 
-<key>OutgoingMailServerUsername</key> 
-<string> Enter the Username of Outgoing Mail Server </string> 
-<key>OutgoingPassword</key> 
-<string> Enter the password for Outgoing Mail </string> 
 <key>OutgoingPasswordSameAsIncomingPassword</key> 
 <true/> 
 <key>PayloadDisplayName</key> 
-<string>Mail 1</string> 
+<string>Email Settings</string> 
 <key>PayloadIdentifier</key> 
-<string>com.apple.mail.managed.0B9BA432-CC74-4C87-B48F-FA26953F8444</string> 
+<string>de.tha.settings.email</string> 
 <key>PayloadType</key> 
 <string>com.apple.mail.managed</string> 
 <key>PayloadUUID</key> 
-<string>0B9BA432-CC74-4C87-B48F-FA26953F8444</string> 
+<string>60B05B68-610C-47AB-BB55-611F8B8EC9C7</string> 
 <key>PayloadVersion</key> 
 <integer>1</integer> 
 </dict> 
 </array> 
 <key>PayloadDisplayName</key> 
-<string>Untitled</string> 
+<string>THA Email</string> 
 <key>PayloadIdentifier</key> 
-<string>52378973-A9C5-4F44-A7FA-5C92B1532106</string> 
+<string>de.tha.settings</string> 
 <key>PayloadType</key> 
 <string>Configuration</string> 
 <key>PayloadUUID</key> 
-<string>CF5867E1-08D3-49F2-AACD-0092E5DF76DD</string> 
+<string>F9BF9FE5-4260-431A-BE65-D968D80DEAB1</string> 
 <key>PayloadVersion</key> 
 <integer>1</integer> 
 </dict> 

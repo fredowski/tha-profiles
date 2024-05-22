@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
+<plist version="1.0"> 
+<dict> 
+  <key>PayloadContent</key> 
+  <array> 
+  <dict>
+    <key>LDAPAccountDescription</key>
+    <string>THA LDAP Adressbuch</string>
+    <key>LDAPAccountHostName</key>
+    <string>ldap.hs-augsburg.de</string>
+    <key>LDAPAccountUseSSL</key>
+    <false/>
+    <key>LDAPSearchSettings</key>
+    <array>
+      <dict>
+        <key>LDAPSearchSettingDescription</key>
+        <string>THA Kontakte</string>
+        <key>LDAPSearchSettingSearchBase</key>
+        <string>ou=People,dc=FH-augsburg,dc=de</string>
+        <key>LDAPSearchSettingScope</key>
+        <string>LDAPSearchSettingScopeOneLevel</string>
+      </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>THA LDAP provisioning</string>
+    <key>PayloadDisplayName</key>
+    <string>THA Adressbuch</string>
+    <key>PayloadIdentifier</key>
+    <string>de.tha.settings.ldap</string>
+    <key>PayloadType</key>
+    <string>com.apple.ldap.account</string>
+    <key>PayloadUUID</key>
+    <string>A4E460C2-79D4-4EE8-9BCF-91BEAE901033</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+  </dict>
+  </array> 
+  <key>PayloadDisplayName</key> 
+  <string>THA Kontakte</string> 
+  <key>PayloadIdentifier</key> 
+  <string>de.tha.settings</string> 
+  <key>PayloadType</key> 
+  <string>Configuration</string>
+  <key>PayloadOrganization</key>
+  <string>Technische Hochschule Augsburg</string>
+  <key>PayloadDescription</key>
+  <string>Kontaktsuche</string>
+  <key>PayloadUUID</key> 
+  <string>6F365CD3-9C94-4656-836A-64F1E544FB59</string> 
+  <key>PayloadVersion</key> 
+  <integer>1</integer> 
+</dict>
+</plist>

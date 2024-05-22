@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title>THA Email/Kalender/Adressbuch Konfigurationsgenerator</title>
+<script>
+  function download(fullname, email, username) {
+    let mobileconfig = `<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> 
+<plist version="1.0"> 
+<dict> 
+  <key>PayloadContent</key> 
+  <array> 
+  <dict> 
+    <key>EmailAccountDescription</key> 
+    <string>THA Email musterma</string>
+    <key>EmailAccountName</key>
+    <string>Max Mustermann</string>
+    <key>EmailAddress</key>
+    <string>max.mustermann@tha.de</string>
+    <key>IncomingMailServerUsername</key>
+    <string>musterma</string>
+    <key>OutgoingMailServerUsername</key>
+    <string>musterma</string>
+    <key>EmailAccountType</key> 
+    <string>EmailTypeIMAP</string> 
+    <key>IncomingMailServerAuthentication</key> 
+    <string>EmailAuthPassword</string> 
+    <key>IncomingMailServerHostName</key> 
+    <string>mail.hs-augsburg.de</string> 
+    <key>IncomingMailServerPortNumber</key> 
+    <integer>993</integer> 
+    <key>IncomingMailServerUseSSL</key> 
+    <true/> 
+    <key>OutgoingMailServerAuthentication</key> 
+    <string>EmailAuthPassword</string> 
+    <key>OutgoingMailServerHostName</key> 
+    <string>smtp.hs-augsburg.de</string> 
+    <key>OutgoingMailServerUseSSL</key> 
+    <true/> 
+    <key>OutgoingPasswordSameAsIncomingPassword</key> 
+    <true/> 
+    <key>PayloadDisplayName</key> 
+    <string>Email Settings musterma</string> 
+    <key>PayloadIdentifier</key> 
+    <string>de.tha.settings.email.musterma</string> 
+    <key>PayloadType</key> 
+    <string>com.apple.mail.managed</string> 
+    <key>PayloadUUID</key> 
+    <string>EmailUUID</string> 
+    <key>PayloadVersion</key> 
+    <integer>1</integer> 
+  </dict>
+	<dict>
+	  <key>CalDAVAccountDescription</key>
+	  <string>Calendar musterma</string>
+	  <key>CalDAVHostName</key>
+    <string>sogo.hs-augsburg.de</string>
+    <key>CalDAVPort</key>
+    <integer>443</integer>
+    <key>CalDAVPrincipalURL</key>
+    <string>/SOGo/dav/musterma/</string>
+    <key>CalDAVUseSSL</key>
+    <true/>
+    <key>CalDAVUsername</key>
+    <string>musterma</string>
+    <key>PayloadDescription</key>
+    <string>SOGo CalDAV provisioning</string>
+    <key>PayloadDisplayName</key>
+    <string>Calendar musterma</string>
+    <key>PayloadIdentifier</key>
+    <string>de.tha.settings.caldav.musterma</string>
+    <key>PayloadOrganization</key>
+    <string>sogo.hs-augsburg.de</string>
+    <key>PayloadType</key>
+    <string>com.apple.caldav.account</string>
+    <key>PayloadUUID</key>
+    <string>CalUUID</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+	</dict>
+	<dict>
+    <key>CardDAVAccountDescription</key>
+    <string>Contact musterma - personal</string>
+    <key>CardDAVHostName</key>
+    <string>sogo.hs-augsburg.de</string>
+    <key>CardDAVPort</key>
+    <integer>443</integer>
+    <key>CardDAVPrincipalURL</key>
+    <string>/SOGo/dav/musterma/Contacts/personal/</string>
+    <key>CardDAVUseSSL</key>
+    <true/>
+    <key>CardDAVUsername</key>
+    <string>musterma</string>
+    <key>PayloadDescription</key>
+    <string>SOGo CardDAV provisioning</string>
+    <key>PayloadDisplayName</key>
+    <string>Contact musterma - personal</string>
+    <key>PayloadIdentifier</key>
+    <string>de.tha.settings.carddav.musterma</string>
+    <key>PayloadOrganization</key>
+    <string>sogo.hs-augsburg.de</string>
+    <key>PayloadType</key>
+    <string>com.apple.carddav.account</string>
+    <key>PayloadUUID</key>
+    <string>CarddavUUID</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+	</dict>
+  </array> 
+  <key>PayloadDisplayName</key> 
+  <string>THA Email/Kalender/Adressbuch musterma</string> 
+  <key>PayloadIdentifier</key> 
+  <string>de.tha.settings.musterma</string> 
+  <key>PayloadType</key> 
+  <string>Configuration</string>
+  <key>PayloadOrganization</key>
+  <string>Technische Hochschule Augsburg</string>
+  <key>PayloadDescription</key>
+  <string>Email, Kalender, Adressbuch und Kontaktsuche - Einstellungen</string>
+  <key>PayloadUUID</key> 
+  <string>ConfUUID</string> 
+  <key>PayloadVersion</key> 
+  <integer>1</integer> 
+</dict>
+</plist>`;
+
+    mobileconfig = mobileconfig.replace("Max Mustermann", fullname);
+    mobileconfig = mobileconfig.replace("max.mustermann@tha.de", email);
+    mobileconfig = mobileconfig.replace(/musterma/g, username);
+
+    let uuid = crypto.randomUUID();
+    mobileconfig = mobileconfig.replace("ConfUUID", uuid);
+    uuid = crypto.randomUUID();
+    mobileconfig = mobileconfig.replace("EmailUUID", uuid);
+    uuid = crypto.randomUUID();
+    mobileconfig = mobileconfig.replace("CalUUID", uuid);
+    uuid = crypto.randomUUID();
+    mobileconfig = mobileconfig.replace("CarddavUUID", uuid);
+
+    var element = document.createElement('a');
+    element.setAttribute('target', '_blank')
+    element.setAttribute('href', 'data:application/x-apple-aspen-config,' + encodeURIComponent(mobileconfig));
+    element.setAttribute('download', 'tha-email.mobileconfig');
+  
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+</script>
+</head>
+
+<body>
+
+<h3>THA Email/Kalender/Adressbuch Konfigurationsgenerator f&uumlr Apple macOS und iOS</h3>
+<p>
+Geben Sie Ihre Daten ein und generieren Sie ein Konfigurationsprofil
+f&uumlr MacOS und iOS. Mit dem Konfigurationsprofil werden die Serverdaten
+f&uuml;r das Senden und Empfangen von Emails, den Kalender und das Adressbuch eingestellt.
+</p>
+
+<p>
+<table>
+  <tr>
+    <td><label for="fullname">Vollst&aumlndiger Name (Vor- und Nachname): </label></td>
+    <td><input id="fullname" size="30" type="text" name="name" value="Max Mustermann"></td>
+  </tr>
+  <tr>
+    <td><label for="email">Emailadresse: </label></td>
+    <td><input id="email" size="30" type="text" name="email" value="max.mustermann@hs-augsburg.de"></td>
+  </tr>
+  <tr>
+    <td><label for="username">Benutzername: </label></td>
+    <td><input id="username" type="text" name="username" value="musterma"></td>
+  </tr>
+</table>
+
+<button type="button"
+onclick="download(document.getElementById('fullname').value,
+document.getElementById('email').value,
+document.getElementById('username').value)">
+Download</button>
+</p>
+<h3>THA Kontakte</h3>
+<p>
+Das Adressbuch der Hochschule wird durch den ldap Server bereitgestellt. Der ldap Server ist nur innerhalb
+der Hochschule oder &uumlber das VPN erreichbar. Die Installation des Profils funktioniert auch nur
+innerhalb der Hochschule oder bei aktivem VPN. Bei der Installation bei "Benutzername" und "Passwort" nichts
+eingeben und einfach "Weiter" klicken.
+</p>
+
+<a href="tha-ldap.mobileconfig" download type="application/x-apple-aspen-config">Download tha-ldap.mobileconfig</a>
+
+</body>
+</html>
